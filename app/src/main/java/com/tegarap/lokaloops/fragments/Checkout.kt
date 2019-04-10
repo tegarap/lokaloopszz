@@ -12,19 +12,25 @@ import android.view.ViewGroup
 import com.tegarap.lokaloops.R
 import com.tegarap.lokaloops.common.VerticalSpaceItem
 import com.tegarap.lokaloops.models.Adapter
+import com.tegarap.lokaloops.models.CheckoutModel
 import com.tegarap.lokaloops.models.ListItem
 import com.tegarap.lokaloops.models.ListItemResponse
 import com.tegarap.lokaloops.rest.EndPoint
 import com.tegarap.lokaloops.rest.InterfacePoint
 import com.tegarap.lokaloops.viewholder.ListItemVH
 import kotlinx.android.synthetic.main.fragment_checkout.*
+import kotlinx.android.synthetic.main.item_list.view.*
+import kotlinx.android.synthetic.main.item_list_checkout.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class Checkout : Fragment(), ListItemVH.Callback {
 
-    override fun onSubmit(data: ListItem, quan: Int) {
+    override fun onSubmit(data: ListItem, number: Int) {
+//        tv_name_check?.text = data.name
+//        tv_price_check?.text = "Rp. " + data.price
+//        tv_stock_check?.text = "Stock : " + number
 
     }
 
@@ -45,6 +51,12 @@ class Checkout : Fragment(), ListItemVH.Callback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //data antar fragment
+        val args = arguments
+        val haha = args?.getParcelable<CheckoutModel>("model")
+
+        tv_checkout?.text = "nama : "+haha?.name
+//njajal
         listAdapter = object : Adapter<ListItem, ListItemVH>(
             R.layout.item_list_checkout,
             arrayListOf(),

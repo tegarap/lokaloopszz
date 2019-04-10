@@ -10,8 +10,18 @@ import com.tegarap.lokaloops.R
 import com.tegarap.lokaloops.fragments.AccountFragment
 import com.tegarap.lokaloops.fragments.ReportFragment
 import com.tegarap.lokaloops.fragments.StoreFragment
+import com.tegarap.lokaloops.models.ListItem
+import com.tegarap.lokaloops.viewholder.ListItemVH
+import kotlinx.android.synthetic.main.item_list_checkout.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ListItemVH.Callback {
+
+    override fun onSubmit(data: ListItem, number: Int) {
+        tv_name_check?.text = data.name
+        tv_price_check?.text = "Rp. " + data.price
+        tv_stock_check?.text = "Stock : " + number
+
+    }
 
     companion object {
 

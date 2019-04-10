@@ -12,12 +12,16 @@ import android.view.ViewGroup
 import com.tegarap.lokaloops.R
 import com.tegarap.lokaloops.common.VerticalSpaceItem
 import com.tegarap.lokaloops.models.Adapter
+import com.tegarap.lokaloops.models.CheckoutModel
 import com.tegarap.lokaloops.models.ListItem
 import com.tegarap.lokaloops.models.ListItemResponse
 import com.tegarap.lokaloops.rest.EndPoint
 import com.tegarap.lokaloops.rest.InterfacePoint
 import com.tegarap.lokaloops.viewholder.ListItemVH
+import kotlinx.android.synthetic.main.bs_add_to_checkout.*
 import kotlinx.android.synthetic.main.fragment_store.*
+import kotlinx.android.synthetic.main.item_list.*
+import kotlinx.android.synthetic.main.item_list_checkout.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,9 +31,9 @@ import retrofit2.Response
 
 class StoreFragment : Fragment(), ListItemVH.Callback {
 
-    override fun onSubmit(data: ListItem, quan: Int) {
-//        btn_bayar. = data.name + "  " + data.price
-//        olah data
+    override fun onSubmit(data: ListItem, number: Int) {
+        tv_name?.text = data.name
+        tv_stock?.text = number.toString()
     }
 
     companion object {
@@ -53,6 +57,11 @@ class StoreFragment : Fragment(), ListItemVH.Callback {
         val fragmentCheckout = Checkout()
         val fragmentManager = fragmentManager
         val fragmentTransaction = fragmentManager!!.beginTransaction()
+// ngirim data antar fragment
+        val args = Bundle()
+        args.putParcelable("model", CheckoutModel(tv_name?.text as String, tv_stock?.text as String))
+//
+        fragmentCheckout.arguments = args
         fragmentTransaction.replace(R.id.container, fragmentCheckout)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()

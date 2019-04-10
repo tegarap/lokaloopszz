@@ -1,5 +1,7 @@
 package com.tegarap.lokaloops.models
 
+//import kotlinx.android.parcel.Parcelize
+
 class Checkout{
     var id:Int = 0
     var namaItem:String? = null

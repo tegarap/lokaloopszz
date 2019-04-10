@@ -37,6 +37,7 @@ class ListItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
             dialog.tv_namabarang?.text = data.name + "  Rp. " + data.price
             val quan = Integer.parseInt(data.price.toString())
             var number = Integer.parseInt(dialog.tv_stock2.text.toString())
+
             dialog.bt_min?.setOnClickListener {
                 number -= 1
                 if (number < 1) {
@@ -58,7 +59,6 @@ class ListItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
                     dialog.btn_keranjang.text = "Add to Box - Rp. " + quan * number
                 }
                 dialog.tv_stock2.text = number.toString()
-//                itemView.tv_quantity?.text = "tes " + number
             }
 
             dialog.btn_keranjang?.setOnClickListener{
@@ -73,7 +73,7 @@ class ListItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
     interface Callback{
-        fun onSubmit(data: ListItem, quan:Int)
+        fun onSubmit(data: ListItem, number:Int)
     }
 
 
