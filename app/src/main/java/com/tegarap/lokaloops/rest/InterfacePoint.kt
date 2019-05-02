@@ -1,5 +1,6 @@
 package com.tegarap.lokaloops.rest
 
+import com.tegarap.lokaloops.models.ListHistory
 import com.tegarap.lokaloops.models.ListItemResponse
 import com.tegarap.lokaloops.models.UserResponse
 import retrofit2.Call
@@ -18,6 +19,6 @@ interface InterfacePoint {
     @GET("home")
     fun listItem(): Call<ListItemResponse>
 
-//    @GET("home")
-//    fun listItem(): Call<ListItemResponse
+    @GET("riwayat")
+    fun listHistory(): Call<ListHistory>
 }

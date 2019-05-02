@@ -8,10 +8,10 @@ import android.view.ViewGroup
 
 import com.tegarap.lokaloops.R
 
-class ReportFragment : Fragment() {
+class HistoryFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_report, container, false)
+        return inflater.inflate(R.layout.fragment_history, container, false)
     }
 }

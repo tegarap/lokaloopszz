@@ -5,11 +5,10 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.BottomSheetDialog
 import android.support.v4.app.Fragment
 import com.tegarap.lokaloops.R
 import com.tegarap.lokaloops.fragments.AccountFragment
-import com.tegarap.lokaloops.fragments.ReportFragment
+import com.tegarap.lokaloops.fragments.HistoryFragment
 import com.tegarap.lokaloops.fragments.StoreFragment
 import com.tegarap.lokaloops.models.ListItem
 import com.tegarap.lokaloops.viewholder.ListItemVH
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity(), ListItemVH.Callback {
             }
 
             R.id.navigation_report -> {
-                val reportFragment = ReportFragment()
+                val reportFragment = HistoryFragment()
                 openFragment(reportFragment)
                 return@OnNavigationItemSelectedListener true
             }

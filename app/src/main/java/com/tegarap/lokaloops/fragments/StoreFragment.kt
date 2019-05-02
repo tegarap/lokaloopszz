@@ -18,7 +18,6 @@ import com.tegarap.lokaloops.models.ListItemResponse
 import com.tegarap.lokaloops.rest.EndPoint
 import com.tegarap.lokaloops.rest.InterfacePoint
 import com.tegarap.lokaloops.viewholder.ListItemVH
-import kotlinx.android.synthetic.main.bs_add_to_checkout.*
 import kotlinx.android.synthetic.main.fragment_store.*
 import kotlinx.android.synthetic.main.item_list.*
 import kotlinx.android.synthetic.main.item_list_checkout.*
