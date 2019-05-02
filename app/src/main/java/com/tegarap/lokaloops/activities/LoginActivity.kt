@@ -2,7 +2,6 @@ package com.tegarap.lokaloops.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import com.tegarap.lokaloops.R
 import com.tegarap.lokaloops.models.UserResponse
 import com.tegarap.lokaloops.rest.EndPoint
@@ -40,8 +39,6 @@ class LoginActivity : AppCompatActivity() {
     private fun login() {
         iPoint.login(et_email.text.toString(), et_password.text.toString()).enqueue(object : Callback<UserResponse> {
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                Snackbar.make(btn_login, "No Response", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
             }
 
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
@@ -51,8 +48,6 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(MainActivity.getIntent(this@LoginActivity))
                     finish()
                 } else {
-                    Snackbar.make(btn_login, "Login Kurang berhasil", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show()
                 }
 
             }

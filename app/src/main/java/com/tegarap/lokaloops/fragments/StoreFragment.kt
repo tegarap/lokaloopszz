@@ -29,6 +29,8 @@ import retrofit2.Response
 
 
 
+
+
 class StoreFragment : Fragment(), ListItemVH.Callback {
 
     override fun onSubmit(data: ListItem, number: Int) {
@@ -49,7 +51,6 @@ class StoreFragment : Fragment(), ListItemVH.Callback {
         // Inflate the layout for this fragment
 
         return inflater.inflate(R.layout.fragment_store, container, false)
-
 
     }
 

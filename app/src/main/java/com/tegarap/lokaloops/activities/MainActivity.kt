@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.design.widget.BottomSheetDialog
 import android.support.v4.app.Fragment
 import com.tegarap.lokaloops.R
 import com.tegarap.lokaloops.fragments.AccountFragment
@@ -33,13 +34,16 @@ class MainActivity : AppCompatActivity(), ListItemVH.Callback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
+        //bottom navbar
         val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationView)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-
-        // To open the first tab as default
-
         val firstFragment = StoreFragment()
         openFragment(firstFragment)
+
+        //bottom sheet
+
 
     }
 

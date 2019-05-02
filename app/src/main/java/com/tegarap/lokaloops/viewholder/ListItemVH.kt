@@ -1,6 +1,6 @@
 package com.tegarap.lokaloops.viewholder
 
-import android.app.Dialog
+import android.support.design.widget.BottomSheetDialog
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.bumptech.glide.Glide
@@ -8,9 +8,6 @@ import com.tegarap.lokaloops.R
 import com.tegarap.lokaloops.models.ListItem
 import kotlinx.android.synthetic.main.fragment_popup_order.*
 import kotlinx.android.synthetic.main.item_list.view.*
-import kotlinx.android.synthetic.main.fragment_popup_order.*
-import kotlinx.android.synthetic.main.fragment_popup_order.view.*
-import kotlinx.android.synthetic.main.item_list_checkout.view.*
 
 class ListItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -31,8 +28,7 @@ class ListItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 //        val quan = Integer.parseInt(data.price.toString())
 
         itemView.bt_order?.setOnClickListener {
-
-            val dialog = Dialog(itemView.context)
+            val dialog = BottomSheetDialog(itemView.context)
             dialog.setContentView(R.layout.fragment_popup_order)
             dialog.tv_namabarang?.text = data.name + "  Rp. " + data.price
             val quan = Integer.parseInt(data.price.toString())
@@ -63,14 +59,18 @@ class ListItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
             dialog.btn_keranjang?.setOnClickListener{
                 callback.onSubmit(data, number)
+                dialog.dismiss()
             }
 
+            dialog.btn_backtomenu?.setOnClickListener{
+                dialog.dismiss()
+            }
+
+            dialog.setCancelable(false)
             dialog.show()
         }
-//        itemView.bt_keranjang
 
     }
-
 
     interface Callback{
         fun onSubmit(data: ListItem, number:Int)

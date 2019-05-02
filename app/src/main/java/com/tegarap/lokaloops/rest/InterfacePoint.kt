@@ -18,4 +18,6 @@ interface InterfacePoint {
     @GET("home")
     fun listItem(): Call<ListItemResponse>
 
+//    @GET("home")
+//    fun listItem(): Call<ListItemResponse
 }
