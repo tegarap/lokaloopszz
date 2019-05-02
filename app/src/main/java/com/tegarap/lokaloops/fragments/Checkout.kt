@@ -82,6 +82,7 @@ class Checkout : Fragment(), ListItemVH.Callback {
 
             }
 
+
             override fun onFailure(call: Call<ListItemResponse>, t: Throwable) {
 
             }
