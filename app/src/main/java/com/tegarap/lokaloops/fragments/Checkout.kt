@@ -87,7 +87,31 @@ class Checkout : Fragment(), ListItemVH.Callback {
             }
         })
 
+        btn_add_customer.setOnClickListener {
+            addCustomer()
+        }
+
+        btn_back.setOnClickListener {
+            kembali()
+        }
 
     }
 
+    fun addCustomer(){
+        val AddCustomer = AddCustomerToOrder()
+        val fragmentManager = fragmentManager
+        val fragmentTransaction = fragmentManager!!.beginTransaction()
+        fragmentTransaction.replace(R.id.container, AddCustomer)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
+
+    fun kembali(){
+        val storeFrag = StoreFragment()
+        val fragmentManager = fragmentManager
+        val fragmentTransaction = fragmentManager!!.beginTransaction()
+        fragmentTransaction.replace(R.id.container, storeFrag)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
+    }
 }
